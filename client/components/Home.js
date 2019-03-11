@@ -14,7 +14,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>{`${this.props.total} producten`}</h1>
+        <div className="header">
+          <div className="info">{`${this.props.total} producten`}</div>
+          <div className="navigation"></div>
+        </div>
         <div className="container">
           {
             this.props.list && this.props.list.map((item) => {
@@ -23,6 +26,9 @@ class Home extends Component {
               )
             })
           }
+        </div>
+        <div className="footer">
+          <div className="navigation"></div>
         </div>
       </div>
     )

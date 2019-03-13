@@ -3,7 +3,7 @@ import processImgUrl from '../helpers/processingFunctions';
 
 const Item = (props) => {
   return (
-      <div className="item">
+      <div className="item" id={props.Obj.id}>
         <img src={processImgUrl(props.Obj.image)} alt={props.Obj.name}/>
         <div className="item__description">
           <strong>{props.Obj.title}</strong>

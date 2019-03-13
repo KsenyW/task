@@ -26,4 +26,16 @@
       padding: 0 0 0 10px;
     }
   }
+
+  .pagination{
+    .prev-link:after{
+      content: '';
+      margin: 0;
+    }
+  
+    .next-link:before{
+      content: '';
+      margin: 0;
+    }
+  }
 }

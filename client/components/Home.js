@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import ReactPaginate from 'react-paginate';
+import Pagination from "react-js-pagination";
 import { emulateList } from '../redux/reducer';
 
 import Item from './Item';
@@ -15,7 +15,7 @@ class Home extends Component {
       queryProps: {
         lang: 'nl_NL',
         formula: 'praxis',
-        currentPage: 0,
+        currentPage: 1,
         viewSize: 24,
         categoryCode: 'd1_d271_d273',
         locale: 'nl_NL'
@@ -27,42 +27,33 @@ class Home extends Component {
     this.props.emulateList(this.state.queryProps);
   }
 
-  handlePageClick(data) {
-    const props = this.state.queryProps;
-    props.currentPage = data.selected;
+  handlePageClick(selected) {
+    const props = { ...this.state.queryProps, currentPage: selected };
     
     this.setState({queryProps: props}, () => {
       this.props.emulateList(this.state.queryProps);
     });
   };
 
-  countPageNumber(){
-    return Math.ceil(this.props.total/this.state.queryProps.viewSize);
-  }
-
-
   render() {
     return (
       <div>
         <div className="header">
           <div className="info">{`${this.props.total} producten`}</div>
-          <div className="navigation">
-            <ReactPaginate
-              previousLabel={'<'}
-              nextLabel={'>'}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
-              pageCount={this.countPageNumber()}
-              marginPagesDisplayed={2}
+          <div id="header-pagination" className="navigation">
+            <Pagination
+              activePage={this.state.queryProps.currentPage}
+              itemsCountPerPage={this.state.queryProps.viewSize}
+              totalItemsCount={this.props.total}
               pageRangeDisplayed={5}
-              forcePage={this.state.currentPage}
-              onPageChange={this.handlePageClick}
-              containerClassName={'pagination'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-              previousLinkClassName={'prev-link'}
-              nextLinkClassName={'next-link'}
-              disabledClassName={'disabled-link'}
+              onChange={this.handlePageClick}
+              hideFirstLastPages={true}
+              itemClassPrev="prev-link"
+              itemClassNext="next-link"
+              activeLinkClass="active-link"
+              disabledClass="disabled-link"
+              prevPageText="<"
+              nextPageText=">"
             />
           </div>
         </div>
@@ -76,23 +67,20 @@ class Home extends Component {
           }
         </div>
         <div className="footer">
-          <div className="navigation">
-            <ReactPaginate
-              previousLabel={'<'}
-              nextLabel={'>'}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
-              pageCount={this.countPageNumber()}
-              marginPagesDisplayed={2}
+          <div id="footer-pagination" className="navigation navigation__footer">
+            <Pagination
+              activePage={this.state.queryProps.currentPage}
+              itemsCountPerPage={this.state.queryProps.viewSize}
+              totalItemsCount={this.props.total}
               pageRangeDisplayed={5}
-              forcePage={this.state.currentPage}
-              onPageChange={this.handlePageClick}
-              containerClassName={'pagination'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-              previousLinkClassName={'prev-link'}
-              nextLinkClassName={'next-link'}
-              disabledClassName={'disabled-link'}
+              onChange={this.handlePageClick}
+              hideFirstLastPages={true}
+              itemClassPrev="prev-link"
+              itemClassNext="next-link"
+              activeLinkClass="active-link"
+              disabledClass="disabled-link"
+              prevPageText="<"
+              nextPageText=">"
             />
           </div>
         </div>

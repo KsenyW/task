@@ -18,6 +18,10 @@ body {
 
 .navigation {
   margin-left: auto;
+
+  &__footer{
+    width: 100%;
+  }
 }
 
 .item{

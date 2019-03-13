@@ -9,6 +9,8 @@
 
     a{
       outline: none;
+      text-decoration: none;
+      color: $highlighted;
       
       &:hover{
         cursor: pointer;
@@ -20,29 +22,66 @@
     color: $main-text-color;
     background-color: $gray;
     border-radius: 3px;
+
+    a{
+      color: $main-text-color;
+    }
   }
 
   .prev-link{
     color: $main-text-color;
+
+    a{
+      color: $main-text-color;
+      font-weight: bold;
+    }
 
     &:after{
       content: 'vorige';
       font-weight: normal;
       margin: 0 10px;
     }
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   .next-link{
     color: $main-text-color;
+
+    a{
+      color: $main-text-color;
+      font-weight: bold;
+    }
 
     &:before{
       content: 'volgende';
       font-weight: normal;
       margin: 0 10px;
     }
+
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   .disabled-link{
     opacity: 0;
+  }
+}
+
+.navigation__footer{
+  .pagination {
+    justify-content: center;
+    padding: 0;
+
+    .prev-link{
+      margin-right: auto;
+    }
+
+    .next-link{
+      margin-left: auto;
+    }
   }
 }

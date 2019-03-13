@@ -5,8 +5,8 @@ const volleyball = require('volleyball');
 
 app.use(volleyball);
 
-app.use(express.static(path.resolve(__dirname, '..', 'client')));
-app.use(express.static(path.resolve(__dirname, '..', 'node_modules')));
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist')));
+app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist', 'node_modules')));
 
 app.use(function (err, req, res, next) {
   console.error(err);
@@ -16,9 +16,9 @@ app.use(function (err, req, res, next) {
 
 
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'))
+  response.sendFile(path.resolve(__dirname, '..', 'client', 'dist', 'index.html'))
 });
 
 app.listen(process.env.PORT || 3000, function () {
-  console.log("Start");
+  console.log("Start on localhost:3000");
 });

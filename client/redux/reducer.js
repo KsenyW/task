@@ -1,4 +1,6 @@
 import axios from "axios";
+import data from '../../data';
+import { emulatePagination } from '../helpers/processingFunctions';
 
 /////////////////CONSTANTS/////////////////////
 const GET_LIST = "GET_LIST";
@@ -53,6 +55,8 @@ export const fetchList = () => dispatch => {
     })
 };
 
-export const emulateList = (data) => dispatch => {
-  dispatch(getList(data))
+export const emulateList = (params) => dispatch => {
+  const paginatedData = emulatePagination(data, params);
+
+  dispatch(getList(paginatedData));
 };

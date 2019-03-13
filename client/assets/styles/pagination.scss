@@ -1,0 +1,48 @@
+.pagination{
+  @include flex-container(row, flex-start, center);
+  list-style: none;
+  font-weight: bold;
+
+  li {
+    color: $highlighted;
+    padding: 5px;
+
+    a{
+      outline: none;
+      
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+
+  .active{
+    color: $main-text-color;
+    background-color: $gray;
+    border-radius: 3px;
+  }
+
+  .prev-link{
+    color: $main-text-color;
+
+    &:after{
+      content: 'vorige';
+      font-weight: normal;
+      margin: 0 10px;
+    }
+  }
+
+  .next-link{
+    color: $main-text-color;
+
+    &:before{
+      content: 'volgende';
+      font-weight: normal;
+      margin: 0 10px;
+    }
+  }
+
+  .disabled-link{
+    opacity: 0;
+  }
+}

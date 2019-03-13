@@ -1,0 +1,29 @@
+@media screen and (max-width: $mobile-screen) {
+  .header{
+    margin: 0;
+  }
+  
+  .container{
+    @include flex-container(row, flex-start, center);
+  }
+
+  .item{
+    @include flex-container(row, flex-start, flex-start);
+    max-width: 100%;
+    width: 100%;
+
+    img{
+      width: 30%;
+    }
+
+    strong{
+      font-size: 16px;
+      padding: 0 0 5px 0;
+    }
+
+    &__description{
+      width: calc(70% - 20px);
+      padding: 0 0 0 10px;
+    }
+  }
+}

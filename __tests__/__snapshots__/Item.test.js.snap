@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item test 1`] = `
+<div
+  className="item"
+  id="5439007"
+>
+  <img
+    alt="DecoMode laminaat King Size Porto 8mm 2,530m²"
+    src="https://d16m3dafbknje9.cloudfront.net/imagescaler/8964553703454-500-500.jpg"
+  />
+  <div
+    className="item__description"
+  >
+    <strong>
+      DecoMode laminaat King Size Porto 8mm 2,530m²
+    </strong>
+    <span>
+      Laminaat
+    </span>
+  </div>
+</div>
+`;

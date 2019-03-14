@@ -1,14 +1,16 @@
-import Item from '../client/components/Item';
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
+import Item from '../client/components/Item';
 
-test('Item test', () => {
+test('Item tests', () => {
   const data = {"name":"DecoMode laminaat King Size Porto 8mm 2,530m²","image":"https://d16m3dafbknje9.cloudfront.net/imagescaler/8964553703454-100-100.jpg","price":"63.22","beforePrice":"63,22","rating":"3","variantCode":"5439007","categoryName":"Laminaat","categories":"Laminaat","link":"/verf-laminaat-decoratie/vloeren/laminaat/decomode-laminaat-king-size-porto-8mm-2-530m²/5439007","m2Amount":"2.53","potentialPromotions":[{"code":"20 procent keuzekorting Praxis week 11 2019","description":"Met 20% keuzekorting","endDate":1552863599000,"fullDescription":"Met 20% keuzekorting","percentage":20.0,"priority":2000,"promoPrice":50.58,"promotionGroup":"keuzekortingPromotionRuleGroup"}],"discount":{"currencyIso":"EUR","formattedValue":"€ 44,25","priceType":"BUY","value":44.25},"priceData":{"currencyIso":"EUR","formattedValue":"€ 63,22","priceType":"BUY","value":63.22},"discountClass":null,"ecocheque":null,"brands":[{"code":"DEMO","name":"DecoMode"}],"deliveryModes":[{"code":"SHDJKSPRAXIS"},{"code":"PICKUP"}],"description":"Laminaat Porto van de King Size laminaatlijn van DecoMode is te gebruiken voor het gehele huis. Door de tweezijdige V-groef wordt de lengte van het laminaat benadrukt. Dit wordt nog eens extra benadrukt door de endless optiek, waarbij de uiteinden zo in elkaar overlopen dat de planken eindeloos lang lijken. DecoMode King Size laminaat is geschikt voor vloerverwarming en is door middel van het kliksysteem eenvoudig te leggen. De slijtklasse is 32, de dikte van de plank is 8mm en de breedte 32,7 cm. De King Size laminaatlijn is verkrijgbaar in 5 verschillende dessins en heeft bijpassende plinten. Je krijgt 25 jaar garantie op het laminaat. <br><br> Slijtklasse: De meest gangbare slijtklassen beginnen bij 23 en eindigen bij 33, waarvan laatstgenoemde de grootste slijtvastheid heeft. Klasse 23/31 wordt geadviseerd voor normaal gebruik in een gemiddeld huishouden en klasse 33 in ruimtes waar constant veel verkeer is, zoals in winkelcentra of openbare gebouwen. <br><br> Door een v-groef aan de lange kant wordt een ruimte wordt optisch verlengd. Een meer landelijke karakter realiseer je met een v-groef rondom. <br><br> Hoeveel pakken heb je nodig? Bereken de oppervlakte van de te leggen vloer(en) (Oppervlakte = Lengte x Breedte) en tel hierbij 10% zaagverlies op. Deel dit door de pakinhoud.","secondid":"variant_5439007","item_type":"product","id":"5439007","title":"DecoMode laminaat King Size Porto 8mm 2,530m²","thumb_url":"https://www.praxis.nl/imagescaler/8964553703454-100-100.jpg","ean":"5400107572670","categoryPath":"/verf-laminaat-decoratie/vloeren/laminaat"};
 
-  const wrapper = shallow(
-    <Item Obj={data} />
-  );
+  const wrapper = shallow( <Item Obj={data} /> );
 
   expect(shallowToJson(wrapper)).toMatchSnapshot();
+
+  expect(wrapper.find("img").prop("src")).toEqual("https://d16m3dafbknje9.cloudfront.net/imagescaler/8964553703454-500-500.jpg");
+  expect(wrapper.find("strong").text()).toEqual("DecoMode laminaat King Size Porto 8mm 2,530m²");
+  expect(wrapper.find("span").text()).toEqual("Laminaat");
 });

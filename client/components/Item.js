@@ -1,5 +1,5 @@
 import React from 'react';
-import processImgUrl from '../helpers/processingFunctions';
+import { processImgUrl } from '../helpers/processingFunctions';
 
 const Item = (props) => {
   return (

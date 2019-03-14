@@ -33,17 +33,10 @@ export default reducer;
 
 /////////////// ACTION DISPATCHER FUNCTIONS///////////////////
 
-// const params = {
-//   lang: 'nl_NL',
-//   formula: 'praxis',
-//   currentPage: '1',
-//   viewSize: '24',
-//   categoryCode: 'd1_d271_d273',
-//   locale: 'nl_NL'
-// }
+const BASE = 'https://www.praxis.nl/search-service/rest/v1';
 
-export const fetchList = () => dispatch => {
-  axios.get(`https://www.praxis.nl/search-service/rest/v1/products?lang=nl_NL&formula=praxis&currentPage=1&viewSize=24&categoryCode=d1_d271_d273&locale=nl_NL`)
+export const fetchList = (params) => dispatch => {
+  axios.get(`${BASE}/products`, { params })
     .then((response) => {
       return response.data;
     })
